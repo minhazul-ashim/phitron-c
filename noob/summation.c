@@ -1,19 +1,22 @@
 #include <stdio.h> 
 
+
 int main () {
-    int n;
-    int arr[n];
-    int sum = 0;
-    scanf("%d", &n);
-    for (int i = 0; i < n; i++) {
+    int x;
+    scanf("%d", &x);
+    int arr[x];
+    for (int i = 0; i < x; i++) {
         scanf("%d", &arr[i]);
     }
-    for (int i = 0; i < n; i++) {
-        sum += arr[i];
+    for (int i = x-1; i >= 0; i--) {
+        int compareIndex = (x-1) - i;
+        if(arr[i] == arr[compareIndex]) {
+            continue;
+        } else {
+            printf("NO");
+            return 0;
+        }
     }
-    if(sum < 0) {
-        sum = sum - (sum * 2);
-    }
-    printf("%d", sum);
+    printf("YES");
     return 0;
 }
